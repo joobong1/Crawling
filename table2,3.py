@@ -20,7 +20,7 @@ from selenium.webdriver import ActionChains
 
 from webdriver_manager.chrome import ChromeDriverManager
 
-df = pd.read_csv('은평구.csv')
+df = pd.read_csv('은평구.csv') # 서울시 구별 가맹점 정보(출처: 비플페이)
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument('--no-sandbox')
@@ -625,7 +625,9 @@ def get_review():
 
 #start = time.time()
 
-for i in range(len(df)):
+##################################################
+##################################################
+for i in range(len(df)): # 실행 for문
     table2_path = 'table2.csv' #biz_menu
     table3_path = 'table3.csv' #biz_comment
     table4_path = 'test4.csv' #error

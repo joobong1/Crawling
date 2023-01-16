@@ -20,7 +20,7 @@ from selenium.webdriver import ActionChains
 
 from webdriver_manager.chrome import ChromeDriverManager
 
-df = pd.read_csv('종로구.csv')
+df = pd.read_csv('은평구.csv') # 서울시 구별 기본 정보(출처: 비플페이)
 def get_phone():
     r = driver.page_source
     soup = BeautifulSoup(r, "html.parser")
@@ -197,7 +197,8 @@ def get_image():
             except: #업체사진 아닌 경우
                 return '',''
             index = 1
-            save_path = "C:/Users/wngud/Desktop/crawling2/images/종로구/" + str(df['aflt_id'][i]) + '_img'
+            # 가맹점 이미지 데이터 경로 설정
+            save_path = "C:/Users/wngud/Desktop/crawling2/images/은평구/" + str(df['aflt_id'][i]) + '_img'
             create_folder_if_not_exists(save_path)
             
             file_names = ''
@@ -259,7 +260,9 @@ chrome_options.add_argument('--single-process')
 chrome_options.add_argument('--disable-dev-shm-usage')
 dpath = '/usr/bin/chromedriver'
 
-for i in range(4663, len(df)): # 가마치통닭 부터 하면 됨
+#####################################################
+#####################################################
+for i in range(len(df)): # 실행 for문
     file_path = 'test.csv' #정상입력 파일
     file_2_path = 'test2.csv' #timeoutexception 처리 파일
     flag = 1
